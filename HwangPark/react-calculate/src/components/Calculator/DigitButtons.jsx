@@ -11,6 +11,7 @@ const DigitButtonWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: 'seven eight nine' 'four five six' 'one two three' 'zero zero zero';
 `;
+
 const digits = [
   { digit: 0, str_num: 'zero' },
   { digit: 1, str_num: 'one' },
@@ -24,21 +25,19 @@ const digits = [
   { digit: 9, str_num: 'nine' },
 ];
 
+const digitButtonList = digits.map(({ digit, str_num }) => (
+  <DigitButton
+    key={digit}
+    id={digit}
+    digit={str_num}
+    onClick={props.onClickNumber}
+  >
+    {digit}
+  </DigitButton>
+));
+
 const DigitButtons = (props) => {
-  return (
-    <DigitButtonWrapper>
-      {digits.map(({ digit, str_num }) => (
-        <DigitButton
-          key={digit}
-          id={digit}
-          digit={str_num}
-          onClick={props.onClickNumber}
-        >
-          {digit}
-        </DigitButton>
-      ))}
-    </DigitButtonWrapper>
-  );
+  return <DigitButtonWrapper>{digitButtonList}</DigitButtonWrapper>;
 };
 
 export default DigitButtons;
