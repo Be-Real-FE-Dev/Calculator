@@ -1,8 +1,5 @@
 # Calculator
-
-<br/>
-
-[2022.09.27] Woowa Course React 프로젝트 5시간 첼린지 2회차
+[2022.09.27] Woowa Course React 프로젝트 5시간 첼린지 2회차 - pair programming
 
 <br/>
 <div align="middle">
@@ -11,8 +8,6 @@
 
 <br/>
 <br/>
-<br/>
-
 <p align="middle">
   <img src="https://img.shields.io/badge/Version-1.0.0-red?style=flat-square" alt="template version"/>
   <img src="https://img.shields.io/badge/Library-React-blue.svg?style=flat-square"/>
@@ -20,6 +15,8 @@
   <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square"/>
 </p>
 
+
+### Pair Prgramming Readme
 [HwangPark readme](./HwangPark/react-calculate/readme.md)
 <br/>
 
