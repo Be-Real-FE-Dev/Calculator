@@ -1,8 +1,8 @@
+# CalCulator
 <div align="middle">
   <image src="./src/assets/calculator.svg"/>
 </div>
 
-# CalCulator
 <p align="middle">
   <img src="https://img.shields.io/badge/Version-1.0.0-red?style=flat-square" alt="template version"/>
   <img src="https://img.shields.io/badge/Library-React-blue.svg?style=flat-square"/>
