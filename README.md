@@ -16,11 +16,7 @@
 </p>
 
 
-### Pair Prgramming Readme
-[HwangPark readme](./HwangPark/react-calculate/readme.md)
-<br/>
-
-[choiJeong readme](./wosh/readme.md)
-<br/>
-
-[KimLee readme](./KL/readme.md)
+## Pair Prgramming
+1. 박준하 - 황도은 : [HwangPark readme](./HwangPark/react-calculate/readme.md)
+2. 최원오 - 정세훈 : [choiJeong readme](./wosh/README.md)
+3. 김다빈 - 이조은
