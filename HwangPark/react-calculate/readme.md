@@ -1,6 +1,7 @@
-<div style="text-align: center;">
+<div align="middle">
   <image src="./src/assets/calculator.svg"/>
 </div>
+
 # CalCulator
 
 <p align="middle">
