@@ -1,39 +1,47 @@
-import React from 'react';
-import styled from 'styled-components';
-import Button from '../UI/Button';
+import React from "react";
+import styled from "styled-components";
+import Button from "../UI/Button";
 
-const OperatorButtonList = styled.div``;
+const OperatorButtonList = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  flex-basis: 25%;
+
+  button {
+    background: orange;
+  }
+`;
 
 const operList = [
   {
-    id: 'oper1',
-    operator: '/',
+    id: "oper1",
+    operator: "/",
   },
   {
-    id: 'oper2',
-    operator: 'X',
+    id: "oper2",
+    operator: "X",
   },
   {
-    id: 'oper3',
-    operator: '-',
+    id: "oper3",
+    operator: "-",
   },
   {
-    id: 'oper4',
-    operator: '+',
+    id: "oper4",
+    operator: "+",
   },
   {
-    id: 'oper5',
-    operator: '=',
+    id: "oper5",
+    operator: "=",
   },
 ];
 
 const Operator = () => {
   return (
-    <div>
+    <OperatorButtonList>
       {operList.map(({ id, operator }) => (
         <Button key={id}>{operator}</Button>
       ))}
-    </div>
+    </OperatorButtonList>
   );
 };
 
