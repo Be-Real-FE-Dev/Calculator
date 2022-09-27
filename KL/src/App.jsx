@@ -46,6 +46,7 @@ function App() {
     switch (operator) {
       case '/':
         result /= +current;
+        result = Math.floor(result);
         break;
       case 'X':
         result *= +current;
