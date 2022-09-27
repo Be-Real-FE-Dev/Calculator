@@ -2,84 +2,96 @@ import './App.css';
 import styled from 'styled-components';
 import Numbers from './components/Numbers';
 import Operators from './components/Operators';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 function App() {
   const [state, setState] = useState({
     prev: '',
     current: '',
-    operator:'',
+    operator: '',
     computed: 0,
   });
-  const [num, setNum] = useState('');
-  const [clickedOperator, setClickedOperator] = useState('');
+
+  const inputRef = useRef();
+
+  // const [num, setNum] = useState('');
+  // const [current, setCurrent] = useState('');
+  // const [clickedOperator, setClickedOperator] = useState('');
 
   const setNumber = clickedNum => {
-    if (num.length === 3) return;
-
-    setNum(prev => {
-      if(prev === '0') return +prev + +clickedNum;
-      return (prev += clickedNum);
+    setState(prevState => {
+      // prev 저장
+      if (state.prev === '') {
+        if (state.prev === '0')
+          return { ...prevState, prev: +state.prev + +clickedNum };
+        else return { ...prevState, prev: (state.prev += clickedNum) };
+      } else {
+        // current 저장
+        if (state.current === '0')
+          return { ...prevState, current: +state.current + +clickedNum };
+        else return { ...prevState, current: (state.current += clickedNum) };
+      }
     });
-    if(state.prev !== '' ){
-      setState(prevState => {
-        return{
-          ...prevState,
-          operator: clickedOperator,
-        }
-      });
-    }
-    console.log(state);
   };
 
   const setOperator = clickedOper => {
-    if(num === '') return;
+    // if (num === '') return;
 
-    setClickedOperator(clickedOper);
+    if (clickedOper === '=') setComputed();
+
     setState(prevState => {
-      if(state.operator !== '') return{...prevState, current: num};
-      else return{...prevState, prev: num};
+      if (state.operator === '') return { ...prevState, operator: clickedOper };
     });
-    setNum('');
-    console.log(state);
+
+    inputRef.current.value = '';
   };
 
   const setComputed = () => {
-    const computedNumber = computed()
-    console.log(computedNumber)
-    setState(prevState => {return{ ...prevState,computed: computedNumber}});
-  }
+    const computedNumber = computed();
 
+    setState(prevState => {
+      return { ...prevState, computed: computedNumber };
+    });
+  };
 
   const computed = () => {
-    const {prev, current, operator} = state;
-    let result; 
-    switch (operator){
-        case '/' :
-          result = +prev / +current;
-          break;
-        case 'X' :
-          result = +prev * +current;
-          break;
-        case '-' :
-          result = +prev - +current;
-          break;
-        case '+' :
-          result = +prev + +current;
-          break;
-        default :
+    const { prev, current, operator } = state;
+    let result;
+    switch (operator) {
+      case '/':
+        result = +prev / +current;
         break;
-      }
+      case 'X':
+        result = +prev * +current;
+        break;
+      case '-':
+        result = +prev - +current;
+        break;
+      case '+':
+        result = +prev + +current;
+        break;
+      default:
+        break;
+    }
     return result;
   };
 
-
   return (
     <Container>
-      <Input value={state.computed ? state.computed : num} readOnly/>
+      <Input
+        ref={inputRef}
+        value={
+          state.computed
+            ? state.computed
+            : state.prev
+            ? state.current
+            : state.prev
+        }
+        readOnly
+      />
       <FlextBox>
         <Numbers setNumber={setNumber} />
-        <Operators setOperator={setOperator} computed={setComputed}/>
+        <Operators setOperator={setOperator} computed={setComputed} />
       </FlextBox>
     </Container>
   );
