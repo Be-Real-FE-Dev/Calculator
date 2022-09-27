@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import DigitButtons from "./DigitButtons";
-import Operator from "./Operator";
-import Button from "../UI/Button";
+import styled from 'styled-components';
+import DigitButtons from './DigitButtons';
+import Operator from './Operator';
+import Button from '../UI/Button';
 
 const ButtonList = styled.div`
   display: flex;
@@ -17,14 +17,16 @@ const DigitBoard = styled.div`
   flex-basis: 75%;
 `;
 
-const CalculatorButtonList = () => {
+const CalculatorButtonList = (props) => {
   return (
     <ButtonList>
       <DigitBoard>
-        <Button className="ac__btn">AC</Button>
-        <DigitButtons />
+        <Button className="ac__btn" onClick={props.onClickAllClear}>
+          AC
+        </Button>
+        <DigitButtons onClickNumber={props.onClickNumber} />
       </DigitBoard>
-      <Operator />
+      <Operator onClickOperator={props.onClickOperator} />
     </ButtonList>
   );
 };
