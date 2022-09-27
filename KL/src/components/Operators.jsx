@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
-const Operators = () => {
+const Operators = (props) => {
+  const [operator, setOperator] = useState(['/', 'X', '-', '+'])
+
+  
+  const clickOperatorHandler = e => {
+    props.setOperator(e.target.textContent);
+  }
   return (
     <div>
-      <Cell className="operator-cell">/</Cell>
-      <Cell className="operator-cell">X</Cell>
-      <Cell className="operator-cell">-</Cell>
-      <Cell className="operator-cell">+</Cell>
-      <Cell className="operator-cell">=</Cell>
+      {operator.map((item,idx) => <Cell key={idx} onClick={clickOperatorHandler} className="operator-cell">{item}</Cell>)}
+      <Cell onClick={() => props.computed()} className="operator-cell">=</Cell>
     </div>
   );
 };

@@ -6,27 +6,80 @@ import { useState } from 'react';
 
 function App() {
   const [state, setState] = useState({
-    prev: 0,
+    prev: '',
+    current: '',
+    operator:'',
+    computed: 0,
   });
-
-  const [num, setNum] = useState(0);
+  const [num, setNum] = useState('');
+  const [clickedOperator, setClickedOperator] = useState('');
 
   const setNumber = clickedNum => {
     if (num.length === 3) return;
 
     setNum(prev => {
-      if (prev === 0) return prev + +clickedNum;
-      else return (prev += clickedNum);
+      if(prev === '0') return +prev + +clickedNum;
+      return (prev += clickedNum);
     });
-    // console.log(num);
+    if(state.prev !== '' ){
+      setState(prevState => {
+        return{
+          ...prevState,
+          operator: clickedOperator,
+        }
+      });
+    }
+    console.log(state);
   };
+
+  const setOperator = clickedOper => {
+    if(num === '') return;
+
+    setClickedOperator(clickedOper);
+    setState(prevState => {
+      if(state.operator !== '') return{...prevState, current: num};
+      else return{...prevState, prev: num};
+    });
+    setNum('');
+    console.log(state);
+  };
+
+  const setComputed = () => {
+    const computedNumber = computed()
+    console.log(computedNumber)
+    setState(prevState => {return{ ...prevState,computed: computedNumber}});
+  }
+
+
+  const computed = () => {
+    const {prev, current, operator} = state;
+    let result; 
+    switch (operator){
+        case '/' :
+          result = +prev / +current;
+          break;
+        case 'X' :
+          result = +prev * +current;
+          break;
+        case '-' :
+          result = +prev - +current;
+          break;
+        case '+' :
+          result = +prev + +current;
+          break;
+        default :
+        break;
+      }
+    return result;
+  };
+
 
   return (
     <Container>
-      <Input />
+      <Input value={state.computed ? state.computed : num} readOnly/>
       <FlextBox>
         <Numbers setNumber={setNumber} />
-        <Operators />
+        <Operators setOperator={setOperator} computed={setComputed}/>
       </FlextBox>
     </Container>
   );
