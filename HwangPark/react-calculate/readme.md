@@ -30,7 +30,7 @@
 - UI : atomic components
 - Calculator : 계산기 UI를 구성하는 components
 
-
+```
   react-calculator
   ├── public/
   ├── src/
