@@ -33,6 +33,7 @@ function App() {
     operator ? setTotalNum(resultNum) : setTotalNum(curNum);
     setCurNum(0);
   };
+
   return (
     <div className="App">
       <DigitView>{curNum ? curNum : totalNum}</DigitView>
