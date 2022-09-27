@@ -19,9 +19,6 @@ const Operators = props => {
           {item}
         </Cell>
       ))}
-      {/* <Cell onClick={() => props.computed()} className="operator-cell">
-        =
-      </Cell> */}
     </div>
   );
 };

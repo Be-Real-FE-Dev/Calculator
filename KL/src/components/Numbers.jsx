@@ -10,7 +10,9 @@ const Numbers = props => {
 
   return (
     <Wrap>
-      <Cell className="first-cell">AC</Cell>
+      <Cell className="first-cell" onClick={props.onReset}>
+        AC
+      </Cell>
       {NUMS.map(num => (
         <Cell key={num} onClick={clickNumberHandler}>
           {num}
