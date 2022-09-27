@@ -3,7 +3,6 @@
 </div>
 
 # CalCulator
-
 <p align="middle">
   <img src="https://img.shields.io/badge/Version-1.0.0-red?style=flat-square" alt="template version"/>
   <img src="https://img.shields.io/badge/Library-React-blue.svg?style=flat-square"/>
@@ -11,7 +10,7 @@
   <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square"/>
 </p>
 
----
+
 
 ## 🎯 기능 요구사항
 
@@ -22,7 +21,7 @@
 - AC(All Clear)버튼을 누르면 0으로 초기화 한다.
 - 계산 결과를 표현할 때 소수점 이하는 버림한다.
 
----
+
 
 ## 📁 folder Architecture
 
@@ -30,7 +29,7 @@
 - UI : atomic components
 - Calculator : 계산기 UI를 구성하는 components
 
-```
+
   react-calculator
   ├── public/
   ├── src/
@@ -43,7 +42,7 @@
   └── webpack.config.js
 ```
 
----
+
 
 ## 🆕 새로 알게된 것
 
