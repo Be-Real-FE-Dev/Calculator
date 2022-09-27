@@ -11,7 +11,6 @@ function App() {
   const clickAllClearHandler = () => {
     setTotalNum(0);
     setCurNum(0);
-    setViewNum(0);
   };
   const clickOperator = (event) => {
     let resultNum = totalNum;
