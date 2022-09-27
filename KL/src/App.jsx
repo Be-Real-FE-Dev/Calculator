@@ -1,4 +1,3 @@
-import './App.css';
 import styled from 'styled-components';
 import Numbers from './components/Numbers';
 import Operators from './components/Operators';
