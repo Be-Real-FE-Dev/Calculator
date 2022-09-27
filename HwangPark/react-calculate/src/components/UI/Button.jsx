@@ -8,8 +8,4 @@ const Button = styled.button`
   border: 1px solid rgba(213, 213, 213, 0.5);
 `;
 
-// const Button = (props) => {
-//   return <button className={`${props.className} ${}`}>{props.children}</button>;
-// };
-
 export default Button;
