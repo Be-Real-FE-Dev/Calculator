@@ -2,7 +2,7 @@
 
 [2022.09.27] Woowa Course React 프로젝트 5시간 첼린지 2회차
 
-<div style="text-align: center;">
+<div style="text-align: center; width: 100%;">
   <image src="./HwangPark/react-calculate/src/assets/calculator.svg"/>
 </div>
 
